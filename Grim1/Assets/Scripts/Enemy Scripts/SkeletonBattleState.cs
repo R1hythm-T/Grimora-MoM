@@ -27,8 +27,8 @@ public class SkeletonBattleState : EnemyState
         {
             if (enemy.IsPlayerDetected().distance < enemy.attackDistance)
             {
-                enemy.ZeroVelocity();
-                return;
+                if (CanAttack())
+                    stateMachine.ChangeState(enemy.attackState);
             }
         }
 
@@ -43,5 +43,15 @@ public class SkeletonBattleState : EnemyState
     public override void Exit()
     {
         base.Exit();
+    }
+
+    private bool CanAttack()
+    {
+        if (Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)
+        {
+            enemy.lastTimeAttacked = Time.time;
+            return true;
+        }
+        return false;
     }
 }

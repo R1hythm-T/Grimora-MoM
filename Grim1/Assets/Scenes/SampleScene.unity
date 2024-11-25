@@ -23225,6 +23225,7 @@ GameObject:
   - component: {fileID: 608776247}
   - component: {fileID: 608776246}
   - component: {fileID: 608776248}
+  - component: {fileID: 608776249}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -23343,6 +23344,20 @@ MonoBehaviour:
   dashCooldown: 1
   dashSpeed: 50
   dashDuration: 0.1
+--- !u!114 &608776249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608776244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fade6a897c3d04a48bbfd0827e3b2f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.2
+  hitMat: {fileID: 2100000, guid: 979d88145cbc4154a9abea8c4c29521d, type: 2}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -23840,6 +23855,7 @@ GameObject:
   - component: {fileID: 1707101894}
   - component: {fileID: 1707101891}
   - component: {fileID: 1707101890}
+  - component: {fileID: 1707101895}
   m_Layer: 7
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -23968,6 +23984,20 @@ MonoBehaviour:
   attackDistance: 1.75
   attackCooldown: 0.4
   lastTimeAttacked: 0
+--- !u!114 &1707101895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707101889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fade6a897c3d04a48bbfd0827e3b2f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.2
+  hitMat: {fileID: 2100000, guid: 979d88145cbc4154a9abea8c4c29521d, type: 2}
 --- !u!1 &1816629945
 GameObject:
   m_ObjectHideFlags: 0

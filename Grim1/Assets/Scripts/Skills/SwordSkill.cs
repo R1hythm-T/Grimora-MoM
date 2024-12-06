@@ -1,9 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum SwordType
+{
+    Regular,
+    Bounce,
+    Pierce,
+    Spin
+}
 
 public class SwordSkill : Skill
 {
+    public SwordType swordType = SwordType.Regular;
+
+    [Header("Bounce Info")]
+    [SerializeField] private int amountOfBounce;
+    [SerializeField] private float bounceGravity;
+
     [Header("Skill Info")]
     [SerializeField] private GameObject swordPrefab;
     [SerializeField] private Vector2 launchForce;
@@ -45,12 +57,20 @@ public class SwordSkill : Skill
         GameObject newSword = Instantiate(swordPrefab, player.transform.position, transform.rotation);
         SwordSkillController newSwordScript = newSword.GetComponent<SwordSkillController>();
 
+        if (swordType == SwordType.Bounce)
+        {
+            swordGravity = bounceGravity;
+            newSwordScript.SetupBounce(true, amountOfBounce);
+        }
+
         newSwordScript.SetupSword(finalDir, swordGravity, player);
 
         player.AssignNewSword(newSword);
 
         DotsActive(false);
     }
+
+    #region Aim Mechanics
 
     public Vector2 AimDirection()
     {
@@ -85,4 +105,5 @@ public class SwordSkill : Skill
 
         return position;
     }
+    #endregion
 }

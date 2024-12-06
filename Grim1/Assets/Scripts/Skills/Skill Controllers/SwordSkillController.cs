@@ -15,7 +15,7 @@ public class SwordSkillController : MonoBehaviour
     private bool isReturning;
 
     [Header("Pierce Info")]
-    [SerializeField] private float pierceAmount;
+    private float pierceAmount;
 
     [Header("Bounce Info")]
     [SerializeField] private float bounceSpeed;
@@ -23,6 +23,13 @@ public class SwordSkillController : MonoBehaviour
     private int bounceAmount;
     private List<Transform> enemyTarget;
     private int targetIndex;
+
+    [Header("Spin Info")]
+    private float maxTravelDistance;
+    private float spinDuration;
+    private float spinTimer;
+    private bool wasStopped;
+    private bool isSpinning;
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -53,6 +60,13 @@ public class SwordSkillController : MonoBehaviour
         pierceAmount = _pierceAmount;
     }
 
+    public void SetupSpin(bool _isSpinning, float _maxTravelDistance, float _spinDuration)
+    {
+        isSpinning = _isSpinning;
+        maxTravelDistance = _maxTravelDistance;
+        spinDuration = _spinDuration;
+    }
+
     public void ReturnSword()
     {
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -75,6 +89,27 @@ public class SwordSkillController : MonoBehaviour
         }
 
         BounceLogic();
+
+        if (isSpinning)
+        {
+            if (Vector2.Distance(player.transform.position, transform.position) > maxTravelDistance && !wasStopped)
+            {
+                wasStopped = true;
+                rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                spinTimer = spinDuration;
+            }
+
+            if (wasStopped)
+            {
+                spinTimer -= Time.deltaTime;
+
+                if (spinTimer < 0)
+                {
+                    isReturning = true;
+                    isSpinning = false;
+                }
+            }
+        }
     }
 
     private void BounceLogic()

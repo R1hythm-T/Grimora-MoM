@@ -62613,7 +62613,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.483448, y: -0.10401535, z: -10.026368}
+  m_LocalPosition: {x: 11.582947, y: -0.10401535, z: -10.026368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62849,7 +62849,7 @@ Transform:
   m_GameObject: {fileID: 608776244}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8, y: 6.17, z: 0}
+  m_LocalPosition: {x: 1.9, y: 6.17, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -63003,19 +63003,19 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   maxHealth:
-    baseValue: 150
+    baseValue: 20
     modifiers: 
   armor:
     baseValue: 0
     modifiers: 
   evasion:
-    baseValue: 50
+    baseValue: 10
     modifiers: 
   magicResistance:
     baseValue: 1
     modifiers: 
   fireDamage:
-    baseValue: 0
+    baseValue: 40
     modifiers: 
   iceDamage:
     baseValue: 0
@@ -63697,7 +63697,7 @@ Transform:
   m_GameObject: {fileID: 1329046844}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.483448, y: -0.10401535, z: -10.026368}
+  m_LocalPosition: {x: 11.582947, y: -0.10401535, z: -10.026368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

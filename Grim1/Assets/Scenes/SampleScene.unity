@@ -63170,6 +63170,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.2
   hitMat: {fileID: 2100000, guid: 979d88145cbc4154a9abea8c4c29521d, type: 2}
+  igniteColor:
+  - {r: 1, g: 0.20784314, b: 0, a: 1}
+  - {r: 1, g: 0.7921569, b: 0, a: 1}
+  chillColor:
+  - {r: 0, g: 0.6033449, b: 1, a: 1}
+  - {r: 0, g: 0.6039216, b: 1, a: 1}
+  shockColor:
+  - {r: 0.21176471, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0.79215693, b: 0, a: 1}
 --- !u!114 &608776250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63216,17 +63225,18 @@ MonoBehaviour:
     baseValue: 1
     modifiers: 
   fireDamage:
-    baseValue: 40
+    baseValue: 1
     modifiers: 
   iceDamage:
-    baseValue: 0
+    baseValue: 1
     modifiers: 
   lightningDamage:
-    baseValue: 0
+    baseValue: 6
     modifiers: 
   isIgnited: 0
   isChilled: 0
   isShocked: 0
+  ailmentsDuration: 4
   currentHealth: 0
 --- !u!1 &619394800
 GameObject:
@@ -64491,6 +64501,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.2
   hitMat: {fileID: 2100000, guid: 979d88145cbc4154a9abea8c4c29521d, type: 2}
+  igniteColor:
+  - {r: 1, g: 0.20784314, b: 0, a: 1}
+  - {r: 1, g: 0.7921569, b: 0, a: 1}
+  chillColor:
+  - {r: 0, g: 0.6033449, b: 1, a: 1}
+  - {r: 0, g: 0.6039216, b: 1, a: 1}
+  shockColor:
+  - {r: 0.21176471, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0.79215693, b: 0, a: 1}
 --- !u!114 &1707101896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64513,7 +64532,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   vitality:
-    baseValue: 10
+    baseValue: 0
     modifiers: 
   damage:
     baseValue: 10
@@ -64525,7 +64544,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   maxHealth:
-    baseValue: 50
+    baseValue: 100
     modifiers: 
   armor:
     baseValue: 0
@@ -64537,17 +64556,18 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   fireDamage:
-    baseValue: 6
+    baseValue: 0
     modifiers: 
   iceDamage:
-    baseValue: 6
+    baseValue: 0
     modifiers: 
   lightningDamage:
-    baseValue: 6
+    baseValue: 0
     modifiers: 
   isIgnited: 0
   isChilled: 0
   isShocked: 0
+  ailmentsDuration: 4
   currentHealth: 0
 --- !u!70 &1707101897
 CapsuleCollider2D:

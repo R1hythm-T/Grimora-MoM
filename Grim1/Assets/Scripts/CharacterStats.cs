@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+    private EntityFX fx;
+
     [Header("Major Stats")]
     public Stat strength; //increase both damage and crit damage
     public Stat agility; //increase both evasion and crit chance
@@ -29,6 +31,7 @@ public class CharacterStats : MonoBehaviour
     public bool isChilled; //weakens armor
     public bool isShocked; //increases evasion
 
+    [SerializeField] private float ailmentsDuration = 4;
     private float ignitedTimer;
     private float chilledTimer;
     private float shockedTimer;
@@ -44,6 +47,8 @@ public class CharacterStats : MonoBehaviour
     {
         critPower.SetDefaultValue(200);
         currentHealth = GetMaxHealthValue();
+
+        fx = GetComponent<EntityFX>();
     }
 
     protected virtual void Update()
@@ -151,19 +156,25 @@ public class CharacterStats : MonoBehaviour
         if (_ignite)
         {
             isIgnited = _ignite;
-            ignitedTimer = 4;
+            ignitedTimer = ailmentsDuration;
+
+            fx.IgniteFXFor(ailmentsDuration);
         }
 
         if (_chill)
         {
             isChilled = _chill;
-            chilledTimer = 4;
+            chilledTimer = 3;
+
+            fx.ChillFXFor(ailmentsDuration);
         }
 
         if (_shock)
         {
             isShocked = _shock;
-            shockedTimer = 4;
+            shockedTimer = 3;
+
+            fx.ShockFXFor(ailmentsDuration);
         }
     }
 

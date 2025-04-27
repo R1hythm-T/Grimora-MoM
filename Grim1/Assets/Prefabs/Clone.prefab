@@ -154,3 +154,8 @@ MonoBehaviour:
   colorLosingSpeed: 5
   attackCheck: {fileID: 7152045672865024816}
   attackCheckRadius: 1
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 128
+  closestEnemyCheckRadius: 25
+  closestEnemy: {fileID: 0}

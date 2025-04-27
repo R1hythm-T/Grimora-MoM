@@ -181,42 +181,59 @@ public class CharacterStats : MonoBehaviour
         {
             if(!isShocked)
             {
-                isShocked = _shock;
-                shockedTimer = 3;
-
-                fx.ShockFXFor(ailmentsDuration);
+                ApplyShock(_shock);
             }
 
             else
             {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 25);
-                float closestDistance = Mathf.Infinity;
-                Transform closestEnemy = null;
+                if (GetComponent<Player>() != null)
+                    return;
+                HitNearestTargetWithShockStrike();
+            }
 
-                foreach (var hit in colliders)
+        }
+    }
+
+    public void ApplyShock(bool _shock)
+    {
+        if (isShocked)
+            return;
+
+        isShocked = _shock;
+        shockedTimer = ailmentsDuration;
+
+        fx.ShockFXFor(ailmentsDuration);
+    }
+
+    private void HitNearestTargetWithShockStrike()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 25);
+
+        float closestDistance = Mathf.Infinity;
+        Transform closestEnemy = null;
+
+        foreach (var hit in colliders)
+        {
+            if (hit.GetComponent<Enemy>() != null && Vector2.Distance(transform.position, hit.transform.position) > 1)
+            {
+                float distanceToEnemy = Vector2.Distance(transform.position, hit.transform.position);
+
+                if (distanceToEnemy < closestDistance)
                 {
-                    if (hit.GetComponent<Enemy>() != null && Vector2.Distance(transform.position, hit.transform.position) > 1)
-                    {
-                        float distanceToEnemy = Vector2.Distance(transform.position, hit.transform.position);
-
-                        if (distanceToEnemy < closestDistance)
-                        {
-                            closestDistance = distanceToEnemy;
-                            closestEnemy = hit.transform;
-                        }
-                    }
-
-                    if (closestEnemy != null)
-                        closestEnemy = transform;
-                }
-
-                if(closestEnemy != null)
-                {
-                    GameObject newShockStrike = Instantiate(shockStrikePrefab, transform.position, Quaternion.identity);
-                    newShockStrike.GetComponent<ShockStrike_Controller>().Setup(shockDamage, closestEnemy.GetComponent<CharacterStats>());
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = hit.transform;
                 }
             }
 
+            if (closestEnemy == null)
+                closestEnemy = transform;
+        }
+
+
+        if (closestEnemy != null)
+        {
+            GameObject newShockStrike = Instantiate(shockStrikePrefab, transform.position, Quaternion.identity);
+            newShockStrike.GetComponent<ShockStrike_Controller>().Setup(shockDamage, closestEnemy.GetComponent<CharacterStats>());
         }
     }
 

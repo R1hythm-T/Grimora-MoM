@@ -64904,13 +64904,13 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   fireDamage:
-    baseValue: 4
+    baseValue: 0
     modifiers: 
   iceDamage:
     baseValue: 0
     modifiers: 
   lightningDamage:
-    baseValue: 0
+    baseValue: 2
     modifiers: 
   isIgnited: 0
   isChilled: 0
@@ -65272,13 +65272,13 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   fireDamage:
-    baseValue: 4
+    baseValue: 0
     modifiers: 
   iceDamage:
     baseValue: 0
     modifiers: 
   lightningDamage:
-    baseValue: 0
+    baseValue: 2
     modifiers: 
   isIgnited: 0
   isChilled: 0
@@ -65778,7 +65778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
-  swordType: 3
+  swordType: 0
   bounceAmount: 5
   bounceGravity: 4
   bounceSpeed: 20

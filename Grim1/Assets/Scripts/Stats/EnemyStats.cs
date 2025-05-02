@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemyStats : CharacterStats
 {
     private Enemy enemy;
+
     [Header("Level details")]
     [SerializeField] private int level = 1;
+
     [Range(0f, 1f)]
     [SerializeField] private float percentageModifier = .2f;
     protected override void Start()

@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
 
     private UI_ItemSlot[] inventoryItemSlot;
     private UI_ItemSlot[] stashItemSlot;
-    private UI_EuqipmentSlot[] equipmentSlot;
+    private UI_EquipmentSlot[] equipmentSlot;
 
     private void Awake()
     {
@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour
 
         inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
         stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
-        equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EuqipmentSlot>();
+        equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
     }
 
     public void EquipItem(ItemData item)

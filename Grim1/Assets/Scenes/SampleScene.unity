@@ -1546,7 +1546,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7acfa84cda7db5b44b7a9b8a8442d99c, type: 2}
   - {fileID: 11400000, guid: df8875dd80fb2da49bd55239c0f3f518, type: 2}
   dropPrefab: {fileID: 1903716883105788266, guid: bbc9781a491ddcb428ec4ed2351d3ea9, type: 3}
-  item: {fileID: 11400000, guid: 7acfa84cda7db5b44b7a9b8a8442d99c, type: 2}
 --- !u!70 &291538063
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -30395,6 +30394,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dde7981c5fdf1841962affcb185745d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingItems:
+  - {fileID: 11400000, guid: c9070e2b40125e2468ccf4d58f33fb6c, type: 2}
+  - {fileID: 11400000, guid: 7ccbbe8eedb796a409583e2767671952, type: 2}
+  - {fileID: 11400000, guid: 77efabe641c451a46a14e01f26fbe6aa, type: 2}
+  - {fileID: 11400000, guid: c9070e2b40125e2468ccf4d58f33fb6c, type: 2}
+  - {fileID: 11400000, guid: c9070e2b40125e2468ccf4d58f33fb6c, type: 2}
+  - {fileID: 11400000, guid: 7ccbbe8eedb796a409583e2767671952, type: 2}
+  - {fileID: 11400000, guid: df8875dd80fb2da49bd55239c0f3f518, type: 2}
   equipment: []
   inventory: []
   stash: []
@@ -64941,6 +64948,7 @@ GameObject:
   - component: {fileID: 608776248}
   - component: {fileID: 608776249}
   - component: {fileID: 608776250}
+  - component: {fileID: 608776251}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -65147,6 +65155,23 @@ MonoBehaviour:
   ailmentsDuration: 4
   shockStrikePrefab: {fileID: 7894816957644756419, guid: e24f494eea6040f438a984a0921ae57e, type: 3}
   currentHealth: 0
+--- !u!114 &608776251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608776244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972bc61230d5e50429d4da6a0ac37ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleItemDrop: 0
+  possibleDrop: []
+  dropPrefab: {fileID: 1903716883105788266, guid: bbc9781a491ddcb428ec4ed2351d3ea9, type: 3}
+  chanceToLoseItems: 10
+  chanceToLoseMaterials: 75
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -66646,7 +66671,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7acfa84cda7db5b44b7a9b8a8442d99c, type: 2}
   - {fileID: 11400000, guid: df8875dd80fb2da49bd55239c0f3f518, type: 2}
   dropPrefab: {fileID: 1903716883105788266, guid: bbc9781a491ddcb428ec4ed2351d3ea9, type: 3}
-  item: {fileID: 11400000, guid: 7acfa84cda7db5b44b7a9b8a8442d99c, type: 2}
 --- !u!70 &1046716885
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -67026,7 +67050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1067218966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -70330,7 +70354,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7acfa84cda7db5b44b7a9b8a8442d99c, type: 2}
   - {fileID: 11400000, guid: df8875dd80fb2da49bd55239c0f3f518, type: 2}
   dropPrefab: {fileID: 1903716883105788266, guid: bbc9781a491ddcb428ec4ed2351d3ea9, type: 3}
-  item: {fileID: 11400000, guid: 7acfa84cda7db5b44b7a9b8a8442d99c, type: 2}
 --- !u!1001 &1716328701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71282,7 +71305,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7acfa84cda7db5b44b7a9b8a8442d99c, type: 2}
   - {fileID: 11400000, guid: df8875dd80fb2da49bd55239c0f3f518, type: 2}
   dropPrefab: {fileID: 1903716883105788266, guid: bbc9781a491ddcb428ec4ed2351d3ea9, type: 3}
-  item: {fileID: 11400000, guid: 7acfa84cda7db5b44b7a9b8a8442d99c, type: 2}
 --- !u!70 &1884099093
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -73209,10 +73231,10 @@ RectTransform:
   - {fileID: 9049854773427133412}
   m_Father: {fileID: 1067218966}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8617113366448815189
 CanvasRenderer:

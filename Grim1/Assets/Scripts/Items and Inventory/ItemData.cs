@@ -1,3 +1,5 @@
+using UnityEditor;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public enum ItemType
@@ -6,11 +8,13 @@ public enum ItemType
     Equipment
 }
 
-[CreateAssetMenu(fileName ="New Item Data", menuName ="Data/Item")]
-
+[CreateAssetMenu(fileName = "New Item Data", menuName = "Data/Item")]
 public class ItemData : ScriptableObject
 {
     public ItemType itemType;
     public string itemName;
     public Sprite icon;
+
+    [Range(0, 100)]
+    public float dropChance;
 }

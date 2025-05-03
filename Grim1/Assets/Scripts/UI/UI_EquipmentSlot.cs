@@ -9,13 +9,14 @@ public class UI_EquipmentSlot : UI_ItemSlot
 
     private void OnValidate()
     {
-        gameObject.name= "Equipment slot - " + slotType.ToString();
+        gameObject.name = "Equipment slot - " + slotType.ToString();
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        Inventory.Instance.UnequipItem(item.data as ItemData_Equipment);
-        Inventory.Instance.AddItem(item.data as ItemData_Equipment);
+        Inventory.instance.UnequipItem(item.data as ItemData_Equipment);
+        Inventory.instance.AddItem(item.data as ItemData_Equipment);
+
         CleanUpSlot();
     }
 }

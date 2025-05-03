@@ -9,10 +9,11 @@ public class UI_CraftSlot : UI_ItemSlot
     {
         UpdateSlot(item);
     }
+
     public override void OnPointerDown(PointerEventData eventData)
     {
         ItemData_Equipment craftData = item.data as ItemData_Equipment;
 
-        Inventory.Instance.CanCraft(craftData, craftData.craftingMaterials);
+        Inventory.instance.CanCraft(craftData, craftData.craftingMaterials);
     }
 }
